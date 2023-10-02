@@ -60,7 +60,30 @@
 	QUnit.test('tizenhet', function(assert) {
       assert.equal(convertToRoman(17),'XVII');
     });
-	
+	QUnit.test('harmincnegy', function(assert) {
+      assert.equal(convertToRoman(34),'XXXIV');
+    });
+	QUnit.test('negyvenhet', function(assert) {
+      assert.equal(convertToRoman(47),'XLVII');
+    });
+	QUnit.test('otvenketto', function(assert) {
+      assert.equal(convertToRoman(52),'LII');
+    });
+	QUnit.test('hetvennyolc', function(assert) {
+      assert.equal(convertToRoman(78),'LXXVIII');
+    });
+	QUnit.test('kilencvennegy', function(assert) {
+      assert.equal(convertToRoman(94),'XCIV');
+    });
+	QUnit.test('szaz', function(assert) {
+      assert.equal(convertToRoman(100),'C');
+    });
+	QUnit.test('szazhat', function(assert) {
+      assert.equal(convertToRoman(106),'CVI');
+    });
+	QUnit.test('492', function(assert) {
+      assert.equal(convertToRoman(492),'CDXCII');
+    });
 	
   });
 </script>
