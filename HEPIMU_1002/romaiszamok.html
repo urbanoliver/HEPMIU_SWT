@@ -39,8 +39,28 @@
     QUnit.test('egy', function(assert) {
       assert.equal(convertToRoman(1),'I');
     });
-	QUnit.test('ketto', function(assert) {
+	QUnit.test('rossz', function(assert) {
       assert.equal(convertToRoman(-1),'wrong number');
     });
+	QUnit.test('negy', function(assert) {
+      assert.equal(convertToRoman(4),'IV');
+    });
+	QUnit.test('ot', function(assert) {
+      assert.equal(convertToRoman(5),'V');
+    });
+	QUnit.test('nyolc', function(assert) {
+      assert.equal(convertToRoman(8),'VIII');
+    });
+	QUnit.test('tiz', function(assert) {
+      assert.equal(convertToRoman(10),'X');
+    });
+	QUnit.test('tizenharom', function(assert) {
+      assert.equal(convertToRoman(13),'XIII');
+    });
+	QUnit.test('tizenhet', function(assert) {
+      assert.equal(convertToRoman(17),'XVII');
+    });
+	
+	
   });
 </script>
