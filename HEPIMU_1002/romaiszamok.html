@@ -9,22 +9,31 @@
 </body>
 
 <script>
-  function convertToRoman(n) {
+	function convertToRoman(n) {
   
-	if(n == 1 ){
-		return "I";
+		if(goodNumber(n)){
+			return "good number";
+		}
+		
+		else{
+			return "wrong number";
+		}
+	
 	}
-	else if( n == 2){
-		return "II";
+	function goodNumber(n){
+		if(n <= 0){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
-  }
-
   QUnit.module('convertToRoman', function() {
     QUnit.test('egy', function(assert) {
-      assert.equal(convertToRoman(1),'I');
+      assert.equal(convertToRoman(1),'good number');
     });
 	QUnit.test('ketto', function(assert) {
-      assert.equal(convertToRoman(2),'II');
+      assert.equal(convertToRoman(-1),'wrong number');
     });
   });
 </script>
