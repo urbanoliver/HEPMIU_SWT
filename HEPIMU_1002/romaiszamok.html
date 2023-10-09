@@ -149,7 +149,15 @@
 	
 	}
 	function convertThousendsDigit(n){
-		if(thousands)
+		if(thousands == 1000){
+			thousands = "M";
+		}
+		else if( n > 1000){
+			n = n/1000;
+			for(i=1000; i < n-1000; i=i+1000){
+				thousands += "M";
+			}
+		}
 	
 	}
 	
@@ -205,6 +213,16 @@
 	QUnit.test('szaztiz', function(assert) {
       assert.equal(convertToRoman(110),'CX');
     });
+	QUnit.test('otszaztizenketto', function(assert) {
+      assert.equal(convertToRoman(512),'DXII');
+    });
+	QUnit.test('nyolcszazhatvanketto', function(assert) {
+      assert.equal(convertToRoman(862),'DCCCLXII');
+    });
+	QUnit.test('ezerharminckilnec', function(assert) {
+      assert.equal(convertToRoman(1039),'MXXXIX');
+    });
+	
 
 	
   });
