@@ -12,20 +12,37 @@
 	romanNumber="";
   
 		if(goodNumber(n)){
-			if (n<=3){
-				for(i=0; i < n; i++){
-					romanNumber += "I";
+			if (n<=20){
+			
+				if(n<=3){
+					for(i=0; i < n; i++){
+						romanNumber += "I";
+					}
+				}
+				else if(n == 4){
+					romanNumber = "IV";
+				}
+				else if(n >= 5 && n < 9){
+				
+					romanNumber = "V";
+					
+					for(i=0; i < n-5; i++){
+						romanNumber += "I";
+					}
+					
+				}
+				else if(n >= 10 && n < 14){
+					romanNumber = "X";
+					
+					for(i=0; i < n-10; i++){
+						romanNumber += "I";
+					}
+				}
+				else if(n == 14){
+					romanNumber = "XIV";
 				}
 			}
-			else if(n == 4){
-				romanNumber = 'IV';
-			}
-			else if (n == 5){
-				romanNumber = 'V';
-			}
-			else if (n == 10){
-				romanNumber = 'X';
-			}
+			
 			
 		}
 		
@@ -62,6 +79,9 @@
     });
 	QUnit.test('tiz', function(assert) {
       assert.equal(convertToRoman(10),'X');
+    });
+	QUnit.test('tizenketto', function(assert) {
+      assert.equal(convertToRoman(12),'XII');
     });
 
 	
