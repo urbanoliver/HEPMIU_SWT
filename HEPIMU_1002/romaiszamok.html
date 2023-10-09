@@ -10,6 +10,8 @@
 	function convertToRoman(n) {
 	
 	romanNumber="";
+	hundreds="";
+	thousands="";
   
 		if(goodNumber(n)){
 			
@@ -20,6 +22,21 @@
 			else if (n >= 10 && n <= 99){
 				romanNumber = convertDecimalDigit(n);
 				romanNumber += convertLastDigit(n);
+			}
+			
+			else if (n >= 100 && n <= 999){
+				hundreds = convertHundredsDigit(n);
+				romanNumber += convertDecimalDigit(n);
+				romanNumber += convertLastDigit(n);
+				romanNumber = hundreds + romanNumber;
+			}
+			else if(n >= 1000){
+				thousands = convertThousendsDigit(n);
+				hundreds = convertHundredsDigit(n);
+				romanNumber += convertDecimalDigit(n);
+				romanNumber += convertLastDigit(n);
+				romanNumber = thousands + hundreds + romanNumber;
+			
 			}
 			
 			else{
@@ -105,6 +122,37 @@
 		return romanNumber;
 	}
 	
+	function convertHundredsDigit (n) {
+	
+		if(n == 100) {
+			hundreds = "C";
+		}
+		else if( n >= 100 && n < 500){
+			for(i=100; i < n-100; i=i+100){
+				hundreds += "C";
+			}
+		
+		}
+		else if(n == 500) {
+			hundreds = "D";
+		}
+		else if( n >= 500 && n < 999){
+			hundreds = "D";
+			for(i=500; i < n-100; i=i+100){
+				hundreds += "C";
+			}
+		}
+		else if(n == 900) {
+			hundreds = "CM";
+		}
+		
+	
+	}
+	function convertThousendsDigit(n){
+		if(thousands)
+	
+	}
+	
   QUnit.module('convertToRoman', function() {
     QUnit.test('egy', function(assert) {
       assert.equal(convertToRoman(1),'I');
@@ -153,6 +201,9 @@
     });
 	QUnit.test('kilencvenkilenc', function(assert) {
       assert.equal(convertToRoman(99),'XCIX');
+    });
+	QUnit.test('szaztiz', function(assert) {
+      assert.equal(convertToRoman(110),'CX');
     });
 
 	
