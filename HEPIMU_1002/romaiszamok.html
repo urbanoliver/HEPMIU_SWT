@@ -13,8 +13,12 @@
   
 		if(goodNumber(n)){
 			
-			if (n>=10){
+			if (n >= 10 && n < 20){
 				romanNumber = "X";
+				romanNumber += convertOneDigit(n);
+			}
+			else if(n >= 20 && n < 30){
+				romanNumber = "XX";
 				romanNumber += convertOneDigit(n);
 			}
 			else{
@@ -84,6 +88,15 @@
     });
 	QUnit.test('tizenketto', function(assert) {
       assert.equal(convertToRoman(12),'XII');
+    });
+	QUnit.test('huszonnegy', function(assert) {
+      assert.equal(convertToRoman(24),'XXIV');
+    });
+	QUnit.test('huszonharom', function(assert) {
+      assert.equal(convertToRoman(23),'XXIII');
+    });
+	QUnit.test('huszonhat', function(assert) {
+      assert.equal(convertToRoman(26),'XXVI');
     });
 
 	
